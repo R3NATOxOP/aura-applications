@@ -6,16 +6,14 @@ import { Toaster } from '@/components/ui/toaster'
 import ThemeToggle from './components/theme-toggle'
 import { SessionProvider } from "./components/providers/session-provider"
 import { initializeDiscordBot } from '@/lib/discord-bot'
-import FallingLogos from './components/falling-logos'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: '[Your Server Name] Whitelist Application',
-  description: 'Apply to join our [Your Server] roleplay server',
+  description: 'Apply to join [Your Server] roleplay server',
 }
 
-// Initialize the Discord bot on the server side
 if (typeof window === 'undefined') {
   initializeDiscordBot();
 }
@@ -30,9 +28,8 @@ export default function RootLayout({
       <body className={inter.className}>
         <SessionProvider>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <div className="min-h-screen bg-background text-foreground relative">
-              <FallingLogos />
-              <div className="relative z-10">
+            <div className="min-h-screen bg-background text-foreground">
+              <div>
                 <header className="container mx-auto p-4">
                   <div className="flex justify-end">
                     <ThemeToggle />
